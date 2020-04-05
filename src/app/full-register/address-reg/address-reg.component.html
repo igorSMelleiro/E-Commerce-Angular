@@ -1,0 +1,63 @@
+<div class="address-wraper">
+  <form 
+  [formGroup]="addressGroup"
+  [ngClass]= "(addressGroup.disabled) ? 'address-registration-form-disabled' : 'address-registration-form'" 
+  class="address-registration-form" action="">
+    <div class="address-container">
+      <h3>Endereço</h3>
+      <div class="address">
+        <mat-form-field appearance="outline">
+            <mat-label>Pais</mat-label>
+            <input  matInput type="text" placeholder="Brasil" formControlName="usrCountry" required>
+            <mat-hint>Ex: Brazil</mat-hint>
+            <mat-error>error</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Estado</mat-label>
+            <input matInput type="text" placeholder="Minas Gerais" formControlName="usrState" required>
+            <mat-hint>Ex: Minas Gerais</mat-hint>
+            <mat-error>error</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Cidade</mat-label>
+            <input matInput type="text" placeholder="Cambuí" formControlName="usrCity" required>
+            <mat-hint>Ex: Cambuí</mat-hint>
+            <mat-error>error</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Codigo postal</mat-label>
+            <input matInput type="text" placeholder="37600000" formControlName="usrZipCode" required>
+            <mat-hint>Ex: 123890-87</mat-hint>
+            <mat-error>error</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="street-name-container">
+        <mat-form-field  class="street-name" appearance="outline">
+          <mat-label>Rua</mat-label>
+          <input matInput type="text" placeholder="Street Name" formControlName="usrStreet"required>
+          <mat-hint>hint</mat-hint>
+          <mat-error>error</mat-error>
+        </mat-form-field>
+        <mat-form-field class="house-number" appearance="outline">
+          <mat-label>Numero</mat-label>
+          <input  matInput type="text" placeholder="Street Name" formControlName="usrNumber" required>
+          <mat-hint>Ex: 1234</mat-hint>
+          <mat-error>error</mat-error>
+        </mat-form-field>
+      </div>      
+      <mat-form-field appearance="outline">
+        <mat-label>Complemento</mat-label>
+        <input matInput type="text" placeholder="Rua " formControlName="usrAddressComplement">
+        <mat-hint>Ex: Rua Joséfino da Rosa Albuquerque</mat-hint>
+        <mat-error>error</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Referencia</mat-label>
+        <input matInput type="text" placeholder="Referencia" formControlName="usrReference">
+        <mat-hint>Ex: Proximo a esquina</mat-hint>   
+        <mat-error>error</mat-error>
+      </mat-form-field>
+      </div>
+  </form> 
+</div>
+

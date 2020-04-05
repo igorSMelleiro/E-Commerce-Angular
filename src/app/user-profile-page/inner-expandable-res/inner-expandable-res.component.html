@@ -1,0 +1,25 @@
+<div class="prod-detail-container">
+  <div class="prod-img-container">
+    <a class="prod-img-link" href="http://localhost:4200/prod_page/{{prodData.prod_id}}/{{prodData.prod_ownerId}}" target="_blank">
+        <img class="prod-img" src="data:image/png;base64,{{prodData.image_url[0]}}" alt="">
+    </a>
+  </div>
+  <div class="prod-info">
+      <a href="http://localhost:4200/prod_page/{{prodData.prod_id}}/{{prodData.prod_ownerId}}" target="_blank">{{prodData.prod_title}}</a>
+      <p><b>Quantidade:</b> {{prodData.order_amount}} </p>
+      <!-- <p>Cor:</p> -->
+      <p><b>Vendedor:</b> {{prodData.seller_name}}</p>
+      <p><b>Comprador:</b> {{prodData.buyer_name}}</p>
+      <!-- <p *ng><b>Comprador:</b> {{prodData.store_name}}</p> -->
+  </div>
+  <div class="prod-shippment-info">
+    <p><b>Status:</b> A Caminho</p>
+    <p><b>De:</b> {{prodData.sad1}} {{prodData.sad2}}, CEP: {{prodData.sad3}},{{prodData.sad4}},{{prodData.sad5}},{{prodData.sad6}} </p>
+    <p><b>Para:</b> {{prodData.bad1}} {{prodData.bad2}},CEP: {{prodData.bad3}},{{prodData.bad4}},{{prodData.bad5}},{{prodData.bad6}} </p>
+  </div>
+  <div class="related-prod-actions">
+    <button class="receive-confirmation" mat-stroked-button>Confirmar Recebimento</button>
+    <button class="cancel-buy" mat-stroked-button>Cancelar pedido</button>
+    <p><a href="">Relatar Problema</a></p>
+  </div>  
+</div>

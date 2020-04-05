@@ -1,0 +1,79 @@
+lCard_min_width = 120px;
+lCard_min_height = 160px;
+lCard_width = 80px;
+lCard_height = 150px;
+lCard_max_width = 230px;
+lCard_max_height = 300px;
+:host{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+    min-width: lCard_max_width;
+    min-height: lCard_max_height;
+    width: auto;
+    height: auto;
+    margin: 0;
+
+    max-width: lCard_max_width;
+    max-height: lCard_max_height;
+
+    .promo-time{
+        
+        text-align: start;
+        
+        color: rgb(240,120,0);
+        margin: 0 0 0 0;
+        padding: 0;
+    }
+    .prod-img{
+        min-width:lCard_max_width;
+        min-height: lCard_max_width;
+        background-color: rgba(120,120,255,0.6);
+        margin: 0;
+        padding: 0;
+        border: none; 
+        border-style: none;
+        border-radius: 2px;
+        cursor: pointer;
+
+    
+    }
+    .additional-info{
+       
+
+        text-decoration: none;
+        background-color: rgba(120,120,120,0.2);
+        color: black;
+        
+        min-width: 100%;
+        cursor: pointer;
+        text-align: center;
+        justify-self: center;
+        align-self: end;
+        margin: 0;
+        padding: 4px 0 4px 0;
+        visibility: hidden;
+    }
+    .prod-act-price{
+        grid-row-start: 3;
+        font-size: 24px;
+        margin: 0;
+        padding: 0;
+    }
+    .prod-old-price{
+        grid-row-start: 4;
+        font-size: 16px;
+        font-weight: 500;
+        color: rgba(0,0,0,0.6)
+        text-decoration: line-through;
+        margin: 0;
+        padding: 0;
+    }
+    &:hover{
+        .additional-info{
+            
+            visibility: visible
+        }
+    }
+}

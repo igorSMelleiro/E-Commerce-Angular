@@ -1,0 +1,76 @@
+<div class="stepper-container">
+  <mat-horizontal-stepper (selectionChange)="selection($event)" [linear]="false" labelPosition="bottom" #stepper>
+      <mat-step 
+      [editable]="this.userValidated ? false : true" 
+      [completed]='this.userValidated'
+      label="Login">
+        <app-easy-login></app-easy-login>
+      </mat-step>
+      <mat-step label="Carrinho">
+        <ul class="shop-list">
+          <li *ngFor="let data of cardData; let i = index;" class='shop-item'>
+            <app-item-buyed [selectedProdInfo]='data' [amount]='amountBuyed[i]'>
+            </app-item-buyed>
+            <div class="remover-container">
+              <button class="remove-btn" (click)="removeProd(i)" mat-stroked-button>Remover</button>
+            </div>
+          </li>
+        </ul>
+      </mat-step>
+      <mat-step  label="Endereço">
+          <div class="address-selector">
+            <mat-radio-group (change)="addressSourceChange($event)" aria-label="Selecione um endereço" [required]='true'>
+                <mat-radio-button [disabled]="(addresses | async).length < 1" value="1">Usar Endereço ja Cadastrado</mat-radio-button>
+                <mat-radio-button value="2">Cadastrar novo endereço </mat-radio-button>
+              </mat-radio-group>
+            <mat-form-field appearance="outline">
+              <mat-label>Endereços</mat-label>
+              <mat-select (selectionChange)="selectedAddressId($event)" [formControl]="address">
+                <mat-option *ngFor="let add of addresses | async;" [value]="add.address_id">
+                  {{add.address_streetName}}, 
+                  {{add.address_number}},  
+                  {{add.address_city}}, 
+                  {{add.address_state}}, 
+                  {{add.address_country}} 
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <mat-divider>
+          </mat-divider>
+        <app-address-reg *ngIf="addressRadio == 2" (formRes)="addressFormState($event)"></app-address-reg>
+      </mat-step>
+      <mat-step label="Pagamento/Finalizar">
+          <!-- <div class="address-selector">
+              <mat-radio-group  [formControl]="addressSource" (change)="addressSourceChange($event)" [value]="addressSource.value" aria-label="Select an option">
+                  <mat-radio-button [disabled]="(addresses | async).length  < 1" value="1">Usar Endereço ja Cadastrado</mat-radio-button>
+                  <mat-radio-button value="2">Cadastrar novo endereço </mat-radio-button>
+                </mat-radio-group>
+              <mat-form-field appearance="outline">
+                <mat-label>Addresses</mat-label>
+                <mat-select (selectionChange)="selectedAddressId($event)" [formControl]="address">
+                  <mat-option *ngFor="let add of addresses | async;" [value]="add.address_id">
+                    {{add.address_streetName}}, 
+                    {{add.address_number}},  
+                    {{add.address_city}}, 
+                    {{add.address_state}}, 
+                    {{add.address_country}} 
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div> -->
+        <app-card-registration></app-card-registration>
+        <div style='display:flex; margin-left: 450px;'>
+            <button style="background-color: rgb(255,120,80); color: white;" (click)="finishShopping()" mat-raised-button>
+                Finalizar Compra
+            </button>
+        </div>
+       
+      </mat-step>
+      <!-- <mat-step label="Finalizar">
+        <button (click)="finishShopping()">
+          Finalizar Compra
+        </button>
+      </mat-step> -->
+    </mat-horizontal-stepper>
+</div>

@@ -1,0 +1,63 @@
+<div [formGroup]="firstStep" class="container">
+  <div class="img-to-display">
+    <img *ngIf="this.imageLists.length > 0" class="current-image" src="{{this.imageLists[0]}}" alt="" required>
+    <img *ngIf="this.imageLists.length <= 0" class="current-image" src="assets/placeholder-images-480x480.png" alt="" required>
+
+    <input (change)="addImage($event)"  type="file" id="files-upload" name='prod-images' multiple="multiple">
+    <!--Separate ul to Make CDK work wraped-->
+    <ul class="image-list"  cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
+      <li class="image-list-item" *ngFor="let image of this.imageLists; let i = index;" cdkDrag>  
+        <div class="prod-images-wraper">
+          <img  class="added-img" src="{{image}}" alt=""><!--Image-->
+          <div class="index-counter"></div>
+          <button  (click)="removeImage(i)" class="remove-img-btn" >x</button><!--Remove img Button-->
+        </div>
+      </li>
+    </ul>
+  </div><!--End-->
+  <div class="first-item-config">
+    <div class="prod-title">
+      <mat-form-field appearance="outline">
+        <mat-label>Descrição do Produto</mat-label>
+        <textarea matInput 
+        formControlName="prodTitle"
+        cdkTextareaAutosize
+        #autosize="cdkTextareaAutosize"
+        Placeholder="Descrição do Produto"
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="5"
+        value="" required></textarea>
+      </mat-form-field>
+    </div>
+    <div class="prod-info-container">
+      <mat-form-field appearance="outline">
+          <mat-label>Codigo do Produto</mat-label>
+        <input matInput formControlName="prodCode" placeholder="Codigo do Produto" value="">
+      </mat-form-field> 
+              <div class="price-container">
+                <mat-form-field  class="prod-price" appearance="outline">
+                  <mat-label>Preço</mat-label>
+                  <input type="text" matInput formControlName="prodPrice" placeholder="Preço" value="" required>
+                </mat-form-field>
+                <mat-form-field class="prod-amount" appearance="outline">
+                  <mat-label>Nº Unidades</mat-label>
+                  <input  type="text" formControlName="prodStockAmount" matInput placeholder="Nº Unidades" value="" required>
+                </mat-form-field>
+              </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Desconto %</mat-label>
+        <input matInput  formControlName="prodDiscount" placeholder="Desconto % " value="">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Escolha a Categoria</mat-label>
+        <mat-select (selectionChange)="selectedCategValue($event)" formControlName="prodCateg" required>
+          <mat-option *ngFor="let categ of categList; let i = index" [value]="(i+1)">
+            {{categ}}
+          </mat-option>
+        </mat-select>
+        <!-- <mat-error *ngIf="prodCateg.hasError('required')">Por favor escolha a forma de registro do endereço</mat-error> -->
+        <mat-hint></mat-hint>
+      </mat-form-field>
+    </div>
+  </div><!--End second column-->
+</div>

@@ -1,0 +1,74 @@
+<div *ngIf="sehable" class="editable-info-container " >
+  <mat-form-field>
+    <mat-label>Select an option</mat-label>
+    <mat-select [formControl]="characteristics" multiple>
+      <mat-option (click)="test()" *ngFor="let characteristic of characteristicsList" [value]="characteristic">{{characteristic}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <div class="fields-container">
+    <div class="prod-field">
+      <mat-form-field class="mat-prod-fiel">
+          <input class="prod-inputs" matInput placeholder="Price" type="text">
+      </mat-form-field>
+      <mat-form-field class="mat-prod-fiel">
+          <mat-select placeholder="Placeholder" [(ngModel)]="selectedValue" name="item">
+            <mat-option *ngFor="let item of items" [value]="item.value">
+              {{item.viewValue}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-form-field class="mat-prod-fiel">
+        <mat-select placeholder="Placeholder" [(ngModel)]="selectedValue" name="item">
+          <mat-option *ngFor="let item of items" [value]="item.value">
+            {{item.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="mat-prod-fiel">
+        <mat-select placeholder="Placeholder" [(ngModel)]="selectedValue" name="item">
+          <mat-option *ngFor="let item of items" [value]="item.value">
+            {{item.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <!-- Cor -->
+    </div>
+    <div class="field-color">
+      <div class="field-color-control">
+         <button class="btn-add-color" mat-stroked-button > + Add </button>
+          <mat-checkbox > Offer All </mat-checkbox>
+          <button class="btn-save-color" mat-stroked-button > Remove All </button>
+      </div>
+      <cdk-virtual-scroll-viewport itemSize="100" class="scrollable-colors">
+        <div class="color-item" *cdkVirtualFor="let item of items">
+          <button class="btn-remove-item" mat-icon-button>
+            <mat-icon class="remove-icon">backspace</mat-icon>
+          </button>
+          <div class="img-holder">
+            <canvas class="color-img" style="background-color: lightgreen;
+              min-height:80px; 
+              min-width:80px;
+              max-width:80px;
+              max-width:80px;
+              "></canvas>
+            <!--<img src="" alt="">-->
+          </div>
+          <div class="stock-info">
+            <mat-form-field class="color-stock" >
+              <mat-label>Select the color</mat-label>
+              <mat-select [formControl]="colors">
+                <mat-option *ngFor="let color of colorsList" [value]="color">{{color}}</mat-option>
+              </mat-select>
+            </mat-form-field> 
+            <mat-form-field>
+              <input matInput placeholder="Quantity" value="">
+            </mat-form-field>
+            <mat-checkbox [formControl]="inStock" >In Offer</mat-checkbox>
+          </div>         
+        </div>
+      </cdk-virtual-scroll-viewport>
+    </div>
+  </div>
+</div>

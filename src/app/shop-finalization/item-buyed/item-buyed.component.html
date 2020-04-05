@@ -1,0 +1,35 @@
+<div class="buyed-prod-container">
+  <div class="prod-img-container">
+    <img class="prod-img" src="data:image/png;base64,{{selectedProdInfo.image_url[0]}}" alt="">
+  </div>
+
+  <div class="prod-info">
+    <p class="prod-title">
+      <a href="">{{selectedProdInfo.prod_title}}</a>
+    </p>
+    <ul class="charact-list">
+      <li *ngFor="let item of attibuteList" class="charact-item">
+        <!-- caracteristics -->
+        <div class="charact-container">
+            <span class="charact">Cor: </span>
+            <span class="attribute">vermelho</span>
+        </div>
+      </li> 
+    </ul>
+  </div>
+
+  <div class="shop-conditions">
+    <p class="seller-name"><a  href="">{{selectedProdInfo.store_name}}</a></p>
+    <p *ngIf="selectedProdInfo.prod_discount > 0" class="old-cost">
+      Price: {{(selectedProdInfo.prod_price) | number : '1.2-2'}}
+    </p> 
+    <p class="act-cost">
+      Price: {{(selectedProdInfo.prod_price*(1 - (selectedProdInfo.prod_discount/100))) | number : '1.2-2'}} - <span class="desc-amount"> {{selectedProdInfo.prod_discount | number : '1.0-2' }} OFF</span></p>
+    <div class="shop-amount">
+      Quatidade:
+      <Button (click)="decrement()">-</Button>
+      <input  [(ngModel)]="amount"  (keypress)="evalAmount($event)" type="text" [value]="amount">
+      <button (click)="increment()">+</button>
+    </div>
+  </div>
+</div>

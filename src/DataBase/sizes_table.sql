@@ -1,0 +1,4 @@
+CREATE TABLE size(
+    size_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
+    size_def varchar(30) NOT NULL
+);

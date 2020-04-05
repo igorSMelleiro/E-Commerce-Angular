@@ -1,0 +1,178 @@
+@import '../../../fonts-mixins-patterns.stylus';
+.container{
+    display flex;
+    flex-direction: row;
+    min-height: 600px;
+    max-width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    .img-to-display{
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        position: relative
+        .current-image{
+            
+            min-width: 450px;
+            min-height: 450px;
+            width: auto;
+            height: auto;
+            max-width: 450px;
+            max-height: 450px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+        #files-upload{
+            top:0;
+            position: absolute;
+            min-width: 450px;
+            min-height: 450px;
+            width: auto;
+            height: auto;
+            max-width: 450px;
+            max-height: 450px;
+            border: none;
+            opacity: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        .image-list{
+            list-style: none;
+            min-width: 450px;
+            min-height: 80px;
+            width: 450px;
+            height: 80px;
+            display: flex;
+            flex-direction: row;
+            flex-shrink: 1;
+            flex-wrap: wrap;
+            align-items: center;
+
+            .image-list-item{
+                position: relative;
+                margin-top: 10px;
+                margin-right: 10px;
+                min-width: 60px;
+                width:60px;
+                height:60px;
+                max-width: 60px;
+                max-height: auto;
+
+                .prod-images-wraper{
+                    position: relative;
+                    display: inline-block;
+                    background-color: lightyellow;
+                    width: 100%;
+                    height 100%;
+                    max-width: 100%;
+                    
+                    
+                    .added-img{
+                        position: absolute;
+                        min-width: 100%;
+                        min-width:  100%;
+                        width: auto;
+                        height auto;
+                        max-width: 100%;
+                        max-width:  100%;
+                        border: 1px solid #ddd;
+                        box-sizing: border-box;
+                        
+                    }
+                    .index-counter{
+                        position: absolute;
+                        
+                    
+                    }
+                    .remove-img-btn{
+                        position: absolute;
+                        top: -10px;
+                        left: -10px;
+                        font-size: 8px;
+                        width: 16px;
+                        height: 16px;
+                        remove-btn(100px, 0.4);
+                        outline: none;
+                        visibility: hidden
+                        
+                    }
+                    &:hover{
+                        .remove-img-btn{
+
+                            visibility: visible;
+                            &:active{
+                                background-color: rgba(255,80,120,1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .cdk-drag-preview {
+            box-sizing: border-box;
+            border-radius: 4px;
+            box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                        0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+        }
+
+            .cdk-drag-placeholder {
+            opacity: 0;
+        }
+
+            .cdk-drag-animating {
+            transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+        }
+        .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+            transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+        }
+    }
+    //right
+    .first-item-config{
+        flex:1;
+        display: inline-block;
+        flex-direction: column;
+        //background-color: lightyellow;
+        padding: 0 24px 24px 24px;
+        box-sizing: border-box;
+        
+        .prod-title{
+            width: 100%;
+            mat-form-field{
+                width: 100%;
+            }
+        }
+        .prod-info-container{
+            flex:1;
+           
+            display:flex;
+            flex-direction: column;
+            width: 100%;
+            .price-container{
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                flex-shrink: 1;
+                width: 100%;
+                box-sizing: border-box;
+
+                .prod-price{
+                  flex:0.8;
+                  margin-right: 24px
+                    
+                }
+                .prod-amount{
+                    flex:0.2;
+                }
+            }
+            .prod-categ{
+                display: flex;
+                flex-direction: column;
+                .categ{
+                    margin-top:16px;
+                }
+            }
+        }
+    }
+}

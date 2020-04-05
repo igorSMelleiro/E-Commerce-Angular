@@ -1,0 +1,8 @@
+
+  <h3 class="promo-time"></h3>
+  <img (click)='navigateToProdPage()' class="prod-img" src="data:image/png;base64,{{cardData?.image_url}}" alt="">
+  <!-- <a class="additional-info">1205 Unidades Restantes</a> -->
+  <h4 *ngIf="cardData?.prod_discount > 0" class="prod-act-price">R$ {{(cardData?.prod_price * (1 - (cardData?.prod_discount/100))) | number: '1.2-2'}}</h4>
+  <h4 *ngIf="cardData?.prod_discount <= 0" class="prod-act-price">R$ {{(cardData?.prod_price) | number: '1.2-2'}}</h4>
+  <h5 *ngIf="cardData?.prod_discount > 0" class="prod-old-price">R$ {{cardData?.prod_price | number: '1.2-2'}}</h5>
+ 

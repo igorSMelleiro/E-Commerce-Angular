@@ -1,0 +1,100 @@
+img_size = 120px;
+@import '../../../fonts-mixins-patterns.stylus'
+.prod-detail-container{
+    position:relative;
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    height:200px;
+    min-height: 150px;
+    max-height: 200px;
+    
+
+    .prod-img-container, .prod-info, .prod-shippment-info,
+    .related-prod-actions{
+        display: flex;
+        flex-direction: column;
+       // background-color: purple;
+        padding-left: 15px;
+        padding-bottom: 12px;
+        min-width: 100px;
+        min-height: 100%;
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        margin: auto 0;
+        border-left: 1px solid rgba(220,220,220,0.4);
+        a{
+            margin: 12px 0 0 0;
+        }
+        p{
+            margin: 12px 0 0 0;
+            text-justify: distribute;
+        }
+        //box-sizing: border-box;
+
+    }
+    .prod-img-container{
+        flex: 0.7;
+    }
+    .prod-info{
+    }
+    .prod-shippment-info{
+    }
+    .related-prod-actions{
+        flex:0.85;
+    }
+
+    .prod-img-container{
+        display: flex;
+        //padding: 15px;
+        //align-items: center;
+        
+        .prod-img-link{
+        
+            text-decoration: none;
+            margin: auto 15px auto 0;
+            min-width: img_size;
+            min-height: img_size; 
+            width: 100%;
+            height: 100%;   
+            max-width: img_size;
+            max-height: img_size;
+            .prod-img{
+               
+            
+                min-width: img_size;
+                min-height: img_size; 
+                width: 100%;
+                height: 100%;   
+                max-width: img_size;
+                max-height: img_size;
+                
+            }
+        }
+    }
+    .related-prod-actions > *{
+        
+        margin: 12px auto 0 auto;
+    }
+    .related-prod-actions{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .receive-confirmation{
+            width: auto;
+            max-width: 200px;
+            
+            background-color: rgba(255,80,0,0.8)
+            color:white;
+            border-radius: 1px;
+        }
+        .cancel-buy{
+            width: auto;
+            max-width: 200px;
+            background-color: white;
+            border-radius: 1px;
+            
+        }
+    }
+}

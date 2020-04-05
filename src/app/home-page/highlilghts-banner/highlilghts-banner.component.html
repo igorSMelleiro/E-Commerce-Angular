@@ -1,0 +1,33 @@
+<div class="banner-container">
+    <category-tree>
+    </category-tree>
+    <div class="promo-banner-container">
+      <ul class="promo-banner-list">
+        <li class="banner-list-item">
+          <img
+          (click)='categNav()'
+          style='cursor: pointer;' 
+          class="banner-item-img" src="assets/eletronicos_ambar.png" alt="">
+        </li>
+      </ul>
+      <div class="category-spotlight">
+        <div>
+          
+        </div>
+        <ul class="spotlight-list">
+          <li class="spotlight-list-item" *ngFor="let item of spotlight; let i = index">
+            <div class="spotlight-item">
+              <!-- <span class="spotlight-category-name">  -- category Name</span> -->
+              <img class="spotlight-img" src="data:image/png;base64,{{item.image_url[0]}}" alt="">
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!--  <button class="btn-before"><mat-icon>navigate_before</mat-icon></button> -->
+      <!-- <button class="btn-next"><mat-icon>navigate_next</mat-icon></button> -->
+    </div>
+    
+    <div class="right-empty-spot">
+      <img src="assets/feminino_vertical_ambar2.png" alt="">
+    </div>
+</div>

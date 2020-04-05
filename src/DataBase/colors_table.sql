@@ -1,0 +1,4 @@
+CREATE TABLE colors(
+    color_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT UNIQUE,
+    color_name varchar(15) NOT NULL UNIQUE
+);

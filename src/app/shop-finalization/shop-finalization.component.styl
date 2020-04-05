@@ -1,0 +1,33 @@
+.stepper-container{
+    margin: 0 auto;
+    max-width: 1400px;  
+    .shop-list{
+        width: 100%;
+        .shop-item{
+            display: block;
+            position: relative;
+            .remover-container{
+                top:28%;
+                right: 8%;
+                position: absolute;
+                display: inline-block;
+                .remove-btn{
+
+                }
+            }
+        }
+    }
+    .address-selector{
+        display: flex;
+        flex-direction:column;
+        z-index : 99;
+        mat-radio-group {
+            margin-top:24px;
+            margin-bottom: 24px;
+        }
+        mat-radio-group > * {
+            
+            margin-right: 24px;
+        }
+    }
+}

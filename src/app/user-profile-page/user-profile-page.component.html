@@ -1,0 +1,20 @@
+<div class="usr-profile-page-container">
+  <mat-sidenav-container class="sidenav-container" >
+      <!--SideNav Content Start -->
+      <mat-sidenav class="sidenav" mode="side" opened>
+        <app-sidenav-content [userInfo]="sidenavInfo">
+        </app-sidenav-content>
+      </mat-sidenav>
+      <!--SideNav Content End -->
+      <mat-sidenav-content class="sidenav-content"> 
+        <div class="sidenav-body-header-container">
+          <ul class="header-info-list">
+            <li *ngFor="let name of headerInfoRoutesName; let i = index;" class="header-list-item">
+              <a class="info-link" [routerLink]="[name]">{{headerInfoType[i]}}</a>
+            </li>
+          </ul>
+        </div>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+      </mat-sidenav-container>
+</div>

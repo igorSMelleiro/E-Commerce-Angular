@@ -1,0 +1,66 @@
+<div class="sidenav-container">
+  <div class="usr-profile-info">
+    <div class="usr-profile-pic">
+      <div class="store-div">
+        
+      </div>
+      <div class="store-pic">
+          <span>
+                <mat-icon class="item-icon">camera_enhance</mat-icon>
+          </span>
+          <img class="pic" src="data:image/png;base64,{{userInfo.user_image}}" alt="">
+          <input type="file" (change)="onProfilePictureUpdate($event)" class="change-pic-input" id='upload-photo'>
+      </div>
+    </div>
+    <div class="usr-profile-status">
+      <p class="usr-profile-name">{{userInfo.user_name}}</p>
+      <p class="usr-profile-email">{{userInfo.user_email}}</p>
+    </div>
+  </div>
+  <div class="sidenav-account-info">
+    <ul class="account-info-list">
+      <li class="account-list-item">
+        <a class="item-link" [routerLink]="['profile-info']">
+          <mat-icon class="item-icon">account_box</mat-icon>
+          Conta
+        </a>
+      </li>
+      <li class="account-list-item">
+        <a class="item-link" [routerLink]="['profile-info']">
+          <mat-icon class="item-icon">shopping_cart</mat-icon>
+          Carrinho
+        </a>
+      </li>
+      <li class="account-list-item">
+        <a class="item-link" [routerLink]="['profile-info']">
+          <mat-icon class="item-icon">favorite</mat-icon>
+          Favoritos
+        </a>
+      </li>
+      <li class="account-list-item">
+        <a class="item-link" [routerLink]="['store']">
+          <mat-icon class="item-icon">store</mat-icon>
+          Loja
+        </a>
+      </li>
+      <li class="account-list-item">
+          <a class="item-link" [routerLink]="['../prod_reg']" >
+              <mat-icon class="item-icon">gavel</mat-icon>
+              Publicar Produto
+          </a>
+        </li>
+      <li class="account-list-item">
+        <a class="item-link" [routerLink]="['#']" >
+            <mat-icon class="item-icon">show_chart</mat-icon>
+            Graficos e Estatisticas
+        </a>
+      </li>
+      <li class="account-list-item">
+          <a class="item-link" [routerLink]="['#']">
+              <mat-icon class="item-icon">settings</mat-icon>
+              Configurações
+          </a>
+        </li>
+    </ul>
+  </div>  
+</div>

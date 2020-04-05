@@ -1,0 +1,69 @@
+@import '../../../fonts-mixins-patterns.stylus'
+header_min_height = 80px
+.shop-info-container{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 1px;
+    box-shadow: 1px 2px 2px 2px rgba(0,0,0,0.1);
+    width: 100%;
+    min-height 100%; 
+    margin: 8px 0 0 0;
+    box-sizing: border-box;
+    
+
+    .header-cell, .market-info-cell, .table-control > *{
+        flex: 1;
+        overflow: hidden;
+        word-wrap: break-word;
+    }
+    
+    
+    .table-control{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-top: 24px; //if header too big, choose small min-height
+        padding-left: 24px;
+        .table-title{ 
+            normal-enfasis();
+            flex:0.5;
+        }
+        .table-filter{
+            
+            flex:0.5
+            .form-filter:host ::ng-deep .mat-form-field-wrapper{
+                padding-bottom: 0;
+            }
+        }
+        .paginator{
+            
+            flex:1;
+
+        }
+    
+          
+        
+    
+    }  
+    .market-info-header{
+        display:flex;
+        height 56px;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 24px 0 24px;
+        normal-enfasis();   
+        
+    }   
+    .expansion-panel-header{
+        display:flex;
+        flex-direction: row;
+        normal-enfasis();
+        
+    }
+   
+   
+}
+
+
+     

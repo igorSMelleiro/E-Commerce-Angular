@@ -1,0 +1,41 @@
+<div class="rating-info-container">
+    <div class="comments">
+        <div class="user-comment">
+           <div class="comment-header">
+               <p class="usr-name">Rafael Soares</p>
+           </div>
+           <p class='usr-comment'>
+                Este produto infelizmente não foi capaz de atender minhas necessidades e o vendedor demorou muito para responder
+                as minhas ao meu contato, realmente, não recomendo.
+           </p>
+        </div>
+        <div class="user-comment">
+            <div class="comment-header">
+                <p class="usr-name">Rafael Soares</p>
+            </div>
+            <p class='usr-comment'>
+                Realmente um produto maravilhoso, enviou rapidamente, e não houveram quaisquer problemas durante a negociação,
+                super recomendo.
+            </p>
+        </div>
+        <div *ngFor="let com of comments" class="user-comment">
+            <div class="comment-header">
+                <p class="usr-name">{{com.usr_name}}</p>
+            </div>
+            <p class='usr-comment'>
+                {{com.comment}}
+            </p>
+        </div>
+    </div>
+    <div class="comment-gen-wraper">
+        <mat-form-field class="comment-textarea" appearance='outline'>
+            <textarea matInput [formControl]="commentControl" placeholder="Deixe um comentario."></textarea>
+            <mat-hint>Maximo de 250 caracteres.</mat-hint>
+        </mat-form-field>
+        <button
+        *ngIf="isAuth()"
+        (click)="setComment()"
+        style='background-color: rgb(255,120,80); color: white; align-self: flex-end;'
+        mat-raised-button>Enviar</button>
+    </div>
+</div>

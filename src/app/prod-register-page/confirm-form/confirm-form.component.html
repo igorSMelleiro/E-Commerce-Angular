@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="images-wraper">
+        <div class="images">
+            <img class="prod-image" [src]="regFormData?.prod_specs.prod_images[0]" alt="">
+            <ul class='image-list'>
+                <li  *ngFor="let image of regFormData?.prod_specs.prod_images" class="list-item">
+                    <img class='image'  [src]="image" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="info-wraper">
+        <div class="info">
+            <h3>{{regFormData?.prod_specs?.prod_title}}</h3>
+            <p><b>Preço</b>: R${{regFormData?.prod_specs?.prod_price | number: '1.2-2'}}</p>
+            <p><b>Desconto</b>: {{regFormData?.prod_specs?.prod_discount}}</p>
+            <p><b>Quantidade:</b> {{regFormData?.prod_specs?.prod_stockAmount}}</p>
+        </div>
+        <div class="info">
+            <h3>Localização: </h3>
+            <p><b>Rua:</b> {{regFormData?.prod_address?.address_streetName}}</p>
+            <p><b>Numero:</b> {{regFormData?.prod_address?.address_number}} </p>
+            <p><b>Cep:</b> {{regFormData?.prod_address?.address_cep}} </p>
+            <p><b>Cidade:</b> {{regFormData?.prod_address?.address_city}} </p>
+            <p><b>Estado:</b> {{regFormData?.prod_address?.address_state}} </p>
+            <p><b>Pais:</b> {{regFormData?.prod_address?.address_country}} </p>
+        </div>
+    </div>
+</div>

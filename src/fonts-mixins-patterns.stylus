@@ -1,0 +1,86 @@
+normal-enfasis(size = 16px){
+
+    font-family: Open Sans,Arial,Helvetica,sans-serif,Heiti;
+    color:#333333;
+    font-size: size;
+    line-height: 20px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.048);
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+
+}
+
+low-enfasis(size = 12px){
+    font-family: Open Sans,Arial,Helvetica,sans-serif,Heiti;
+    color:#666666;
+    font-size: size;
+    line-height: 20px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.048);
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+high-enfasis(size = 18px){
+    font-family: Open Sans,Arial,Helvetica,sans-serif,Heiti;
+    color:#000000;
+    font-size: size;
+    line-height: 20px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.048);
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+discount-ticket(size = 12px){
+    font-family: Open Sans,Arial,Helvetica,sans-serif,Heiti;
+    color:white;
+    font-size: size;
+    line-height: 20px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.048);
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    padding: 4px 8px 4px 8px;
+    border-radius: 2px;
+    background-color: rgba(255,80,0,0.8);
+}
+
+prod-title-mixin(){
+    text-decoration: none;
+    white-space:normal;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    
+    
+}
+store-name(){
+    font-size: 14px;
+    color: rgba(100,100,100,0.8);
+    text-decoration: underline;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.048);
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+
+}
+prod-title-hover(){
+    color: rgb(255,100,0);
+}
+normal-enfasis-hover(){
+    color: rgba(255,80,0,0.8);
+    
+}
+background-item-hover(){
+    background-color: rgba(240,240,240,1);
+}
+
+remove-btn(border_r = 100px){
+    background-color: rgba(255,80,120 0.8); 
+    color: rgb(255,255,255);
+    border-style: none;
+    border-radius: border_r; 
+    text-align: center;
+    box-shadow: 1px 1px 2px 0px rgba(100,100,100,0.4); 
+
+}
+
+
+
+

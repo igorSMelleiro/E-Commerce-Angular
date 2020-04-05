@@ -1,0 +1,14 @@
+<div class="top-filter-container">
+  <div class="sorter-container">
+    <mat-form-field>
+      <mat-label>Sort By</mat-label>
+      <mat-select [(ngModel)]="selectedValue">
+        <mat-option *ngFor="let sort of sortParams" [value]="sort">
+          {{sort}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-icon  class="list_view">view_list</mat-icon>
+    <mat-icon  class="card_view" >view_module</mat-icon>
+  </div>
+</div>

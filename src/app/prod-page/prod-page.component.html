@@ -1,0 +1,30 @@
+
+<div class="page-container">
+    
+    <app-prod-img-holder [images]='prodFullData[0].image_url' class="prod-img-holder-cnpt" ></app-prod-img-holder>  
+    
+    <app-prod-info 
+    [prodInfo]="prodFullData[0]"
+    class="prod-info-cnpt" >
+    </app-prod-info>
+    
+
+    <!--Detailed info container -->
+    <div  class="prod-description">
+        <mat-tab-group class="description-info-slider" color="accent" dynamicHeight="true" >
+            <!-- <mat-tab class="general-info-tab" label="Informações Gerais"><app-general-info></app-general-info></mat-tab> -->
+            <!-- <mat-tab class="details-info-tab" label="Detalhes Do Produto"><app-details-info></app-details-info></mat-tab> -->
+            <mat-tab class="coments-info-tab" label="Avaliações">
+                <app-rating-info [comments]='0'></app-rating-info>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+    
+    <div *ngIf="true" class="related-prod"><!--Max of 5-->
+        <app-light-card *ngFor="let item of [1,2,3,4,5];let i = index;" [cardData]="relatedProd[i]"></app-light-card>
+        
+    </div>
+    
+    
+
+</div>

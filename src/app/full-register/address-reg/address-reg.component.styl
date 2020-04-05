@@ -1,0 +1,48 @@
+.address-wraper{
+
+    display: flex;
+    flex-direction:column;
+    .address-registration-form{
+        display:flex;
+        flex-direction: column;
+       
+        .address-container{
+            display: flex;
+            flex-direction: column;
+            min-width: 600px
+            width: 600px;
+            max-width: 700px
+            .address > *{
+                margin-right: 40px;
+                border-radius: 2px;
+            }
+           
+            .street-name-container{
+                display:flex
+                flex-direction: row;
+                
+            
+                .street-name{
+                    
+                    flex:0.9;
+                    margin-right: 10px;
+                }
+                .house-number{
+                    flex:0.1;
+                }
+            }
+        }
+    }
+    .address-registration-form-disabled{
+       display:flex;
+       flex-direction: column;
+       visibility: hidden;
+        
+    }
+    // ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end {
+    //     border-radius: 2px !important;
+    // }
+    // ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {
+    //     border-radius: 2px !important;
+    // }
+}

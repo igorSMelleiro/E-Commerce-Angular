@@ -1,0 +1,19 @@
+<div class="shocase-container">
+    <aside class="showcase-filters">
+        <app-showcase-side-filters>
+        </app-showcase-side-filters>
+    </aside>
+    
+    <div class="showcase-products-container">
+        <header class="prod-aditional-filters">
+            <app-showcase-top-filters></app-showcase-top-filters>
+        </header>
+        <div class="showcase-prod-list">
+            <!-- <h3 style="align-self:center;justify-self: center;">teste</h3> -->
+            <ng-template [ngIf]="(products | async).length"> 
+                    <app-prod-card *ngFor="let prod of products | async"
+                    [product]="prod"></app-prod-card>
+            </ng-template>
+        </div>
+    </div>
+</div>

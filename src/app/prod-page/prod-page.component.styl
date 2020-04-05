@@ -1,0 +1,111 @@
+imgContainerSize =600px;
+
+
+setImgSize(){
+        min-width: 50px;
+        min-height: 50px;
+}
+
+.page-container{
+
+    display: grid;
+    position: relative;
+    min-width: 1100px;
+    width:  auto;
+    max-width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    grid-template-columns: 500px minmax(600px,1fr);
+    grid-template-rows: 1fr 1fr 250pxz;
+    border:  inset 1px;
+    border-style: solid;
+    border-color: #eee
+    //just positioning angular component
+    .prod-img-holder-cnpt{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    //just positioning angular component
+    .prod-info-cnpt{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        
+    }
+    
+        
+     .act-btn-container{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    
+               
+                
+        .btn-add-cart{
+            margin: 4px 0;
+            
+            text-align: center;
+            
+        }
+        .btn-buy-now{
+            margin: 4px 0;
+            
+            text-align: center;
+        
+        }
+        .btn-favorit{
+            margin: 4px 0;
+            text-align: center;
+        }
+    }
+    
+    btnActWidth(){
+        width: 48px;
+        height 24px;
+    }
+    
+
+    .related-prod{
+        width: 100%;
+        min-height: 400px;
+        height: auto ;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        background-color: white;
+    }
+    
+    .prod-description{
+        width: 100%;
+        min-height: 400px;
+        background-color: white;
+        height: auto;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        
+        .description-info-slider{
+            
+            .general-info-tab{
+            
+            }
+            .details-info.tab{
+            }
+            .comment-info-tab{
+            }
+        }
+    }
+}

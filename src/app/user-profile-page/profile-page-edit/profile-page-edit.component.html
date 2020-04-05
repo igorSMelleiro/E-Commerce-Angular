@@ -1,0 +1,150 @@
+<div class='container'>
+    <div class="email-address">
+        <div [formGroup]="profileGroup" class="account-info">
+            <h3>Perfil</h3>
+            <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="profileName" [appInputFormatRegExp]='onlyLetterRegex'>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field  appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="profileEmail" email>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint><span (click)="passwordChangeState()" style="cursor:pointer;color:blue;">Alterar Senha Cadastrada</span></mat-hint>
+            </mat-form-field>
+            <ng-template [ngIf]="editModePassword">
+                    <h4>Alterar Senha</h4>
+                <mat-form-field  appearance="outline">
+                    <mat-label>Senha Atual</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="profilePhone1" >
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint>+xx (xx) x xxxx - xxxx</mat-hint>
+                </mat-form-field>
+                <mat-form-field  appearance="outline">
+                    <mat-label>Nova Senha</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="profilePhone2" >
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint>+xx (xx) x xxxx - xxxx</mat-hint>
+                </mat-form-field>
+                <mat-form-field  appearance="outline">
+                    <mat-label>Confirmar Nova Senha</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="profilePhone2" >
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint>+xx (xx) x xxxx - xxxx</mat-hint>
+                </mat-form-field>
+                <div>
+                    <button style="margin-right: 24px; color:white; background-color: rgb(255,120,40);"
+                     mat-stroked-button>Confirmar</button>
+                    <button  mat-stroked-button>Cancelar</button>
+                </div>
+            </ng-template>  
+            <mat-form-field  appearance="outline" [appInputFormatRegExp]='onlyNumbersRegex'>
+                <mat-label>Telefone 1</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="profilePhone1" [appInputFormatRegExp]='onlyNumbersRegex'>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>+xx (xx) x xxxx - xxxx</mat-hint>
+            </mat-form-field>
+            <mat-form-field  appearance="outline">
+                <mat-label>Telefone 2</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="profilePhone2" [appInputFormatRegExp]='onlyNumbersRegex'>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>+xx (xx) x xxxx - xxxx</mat-hint>
+            </mat-form-field>
+            <button (click)="saveProfile()" mat-stroked-button>Salvar Alterações</button>
+        </div>
+
+
+        <div [formGroup]="addressGroup" class="address-info">
+            <h3>Endereços</h3>
+            <div *ngFor="let address of (profileCompleteInfo.profileAddresses); let i = index;" class="address-cards">
+                <h4>Endereço {{i + 1}}</h4>
+                <div>
+                    <p><strong>Endereço:</strong> {{address.address_streetName}}</p>
+                    <p><strong>CEP:</strong> {{address.address_cep}} </p>
+                    <p><strong>Pais:</strong> {{address.address_state}}</p>
+                    <p><strong>Estado:</strong> {{address.address_state}}</p>
+                    <p><strong>Cidade:</strong> {{address.address_city}}</p>
+                </div>
+                <div style='margin-top:12px;'>
+                    <button (click)="editAddress(address.address_id)" style="background-color:rgb(255,120,40); color:white;margin-right:24px;" mat-stroked-button>Editar</button>
+                    <button (click)="deleteAddress(address.address_id)" mat-stroked-button>Excluir</button>
+                </div>
+            </div>
+            <ng-template [ngIf]="editModeAddress">
+            <mat-form-field  appearance="outline">
+                <mat-label>Endereço</mat-label>
+                <input matInput placeholder="Rua das Bananeiras" formControlName="addressStreet" [appInputFormatRegExp]='onlyLetterRegex'>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field  appearance="outline">
+                <mat-label>Numero</mat-label>
+                <input matInput placeholder="290" formControlName="addressNum" [appInputFormatRegExp]='onlyNumbersRegex'>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field  appearance="outline">
+                <mat-label>CEP</mat-label>
+                <input matInput placeholder="3760000" formControlName="addressCep" [appInputFormatRegExp]='onlyNumbersRegex'>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint></mat-hint>
+            </mat-form-field>
+            <mat-form-field  appearance="outline" >
+                <mat-label>Pais</mat-label>
+                <input matInput placeholder="Brasil" formControlName="addressCountry" [appInputFormatRegExp]='onlyLetterRegex'>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>+xx (xx) x xxxx - xxxx</mat-hint>
+            </mat-form-field>
+            <mat-form-field  appearance="outline">
+                <mat-label>Estado</mat-label>
+                <input matInput placeholder="Minas Gerais" formControlName="addressState" [appInputFormatRegExp]='onlyLetterRegex'>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>+xx (xx) x xxxx - xxxx</mat-hint>
+            </mat-form-field> 
+            <mat-form-field  appearance="outline">
+                <mat-label>Cidade</mat-label>
+                <input matInput placeholder="Cambuí" formControlName="addressCity" [appInputFormatRegExp]='onlyLetterRegex'>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>+xx (xx) x xxxx - xxxx</mat-hint>
+            </mat-form-field>
+            <button (click)="saveAddressChanges()" mat-stroked-button >Salvar Alterações</button>
+            </ng-template>
+        </div>
+    </div>
+    <div *ngIf="false" [formGroup]="cardGroup" class="credcard-info">
+        <h3>Cartão de Credito</h3>
+        <mat-form-field  appearance="outline">
+            <mat-label>Nome do Titular</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="cardOwnerName" [appInputFormatRegExp]='onlyLetterRegex'>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        <mat-form-field  appearance="outline">
+            <mat-label>Numero do cartão</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="cardNumber">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        <mat-form-field  appearance="outline">
+            <mat-label>Data de Validade</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="cardValidationDate" [appInputFormatRegExp]='onlyNumAndCharRegex'>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint></mat-hint>
+        </mat-form-field>
+        <mat-form-field  appearance="outline">
+            <mat-label>Codigo de segurança</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="cardSecurityCode" [appInputFormatRegExp]='onlyNumbersRegex'>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint></mat-hint>
+        </mat-form-field>
+        <mat-form-field  appearance="outline">
+            <mat-label>CPF</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="ownerCpf" [appInputFormatRegExp]='onlyNumbersRegex'>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>+xx (xx) x xxxx - xxxx</mat-hint>
+        </mat-form-field> 
+        <button (click)="saveCredCardChanges()" mat-stroked-button>Salvar Alterações</button>
+    </div>
+</div>

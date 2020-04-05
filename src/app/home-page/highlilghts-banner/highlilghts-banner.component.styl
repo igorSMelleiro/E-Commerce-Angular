@@ -1,0 +1,118 @@
+@import '../../../fonts-mixins-patterns.stylus';
+//proporção 3x1 x:y 
+overall_ratio = 2;
+height_ratio = 0.8;
+category_list_width = 210px; // min-value = 150// redimensiona o container externo baseado na largura do lista de categoria right and left sides
+banner_img_height = 460px;  // redimenciona proporcionalmente os itens baseado na altura no banner
+bottom_container_ratio = 0.6; // reduz o tamanho dos itens abaixo do banner - spotlight - 
+
+banner_img_final_height = banner_img_height * height_ratio;
+banner_img_width = banner_img_height * overall_ratio;
+
+
+
+banner_container_height = banner_img_final_height + (category_list_width) * bottom_container_ratio;
+banner_container_width = banner_img_width + (2 * category_list_width);
+spotlight_height = category_list_width *  bottom_container_ratio ;
+
+
+//styles
+.banner-container{
+
+    display:flex;
+    flex-direction: row;
+    margin: 0 auto;
+    max-width: 100%;
+    width: banner_container_width;
+    height: banner_container_height;
+    box-sizing: border-box;
+    //overflow:hidden;
+   // background-color: lightblue;
+    
+
+    
+    .promo-banner-container{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        margin: 0 category_list_width 0 category_list_width; 
+
+        min-width: banner_img_width;
+        min-height: banner_img_final_height;
+        max-width: banner_img_width;
+        max-height: banner_img_final_height;
+        .promo-banner-list{
+            
+            min-width: banner_img_width;
+            min-height: banner_img_final_height;
+            max-width: banner_img_width;
+            max-height: banner_img_final_height;
+            .banner-list-item{
+                min-width: banner_img_width;
+                min-height: banner_img_final_height;
+                max-width: banner_img_width;
+                max-height: banner_img_final_height;
+                .banner-item-img{
+                    min-width: banner_img_width;
+                    min-height: banner_img_final_height;
+                    max-width: banner_img_width;
+                    max-height: banner_img_final_height;
+                    outline: none;
+                }
+            }
+        }
+        //variables start
+        max_width_spotlight_item = (banner_img_width / (banner_img_width/spotlight_height));
+        max_height_spotlight_item = spotlight_height ;
+        
+
+        //variables end
+        .category-spotlight{
+
+            min-width: banner_img_width;
+            width: banner_img_width;    
+            min-height: spotlight_height;
+            // margin: 10px 0 10px 0;
+            .spotlight-list{
+                position: relative;
+                min-width: banner_img_width;
+                width: banner_img_width;    
+                min-height: max_height_spotlight_item;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                margin: auto 0;
+                overflow:hidden;
+                .spotlight-list-item{
+                    max-width: max_width_spotlight_item;
+                    max-height: max_height_spotlight_item;
+                    min-height: max_height_spotlight_item;
+                    .spotlight-item{
+                        
+                        min-width: max_width_spotlight_item;
+                        min-height: max_height_spotlight_item;
+                        max-width: max_width_spotlight_item;
+                        max-height: max_height_spotlight_item;
+                        box-sizing: border-box;
+                        .spotlight-category-name{
+                            low-enfasis();
+                        }
+                        .spotlight-img{
+                            border-radius: 2px;
+                            text-align: center;
+                            min-width: max_width_spotlight_item;
+                            min-height: max_width_spotlight_item;
+                            max-width: max_width_spotlight_item;
+                            max-height: max_width_spotlight_item;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .right-empty-spot{
+       // background-color: lightgreen;
+        padding-left: 8px;
+        margin-left: banner_img_width;
+    }
+}

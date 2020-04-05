@@ -1,0 +1,83 @@
+<div class="form-container">
+    <form class="form-register" [formGroup]="profileRegistration">
+        <h2>Registration</h2>
+        <mat-form-field >
+            <mat-label>Nome</mat-label>
+            <input matInput placeholder="Your Name" formControlName="usrName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Your Last Name" formControlName="usrLastName">
+         </mat-form-field>
+        <mat-form-field>
+            <mat-label>User Name</mat-label>
+            <input matInput placeholder="Nickname" formControlName="usrNickName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>E-mail</mat-label>
+            <input matInput type="email" placeholder="example@example.com" formControlName="usrEmail">
+        </mat-form-field>
+       
+        
+
+        <div class="form-pwrd-container">
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Exam*ple#" formControlName="usrPassword" >
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="password" placeholder="Exam*ple#" formControlName="usrConfirmedPassword">
+            </mat-form-field>
+            
+        </div>
+        <mat-form-field>
+            <mat-label>Social Security Number</mat-label>
+            <input matInput placeholder="SSN" formControlName="usrSSN">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker1" placeholder="Birth" formControlName="usrBirthDate">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <!--***User Adress Field***-->
+        <div class="address-container"formGroupName="address">
+            <h3>Address</h3>
+            <div class="address">
+                <mat-form-field>
+                    <mat-label>Country</mat-label>
+                    <input matInput type="text" placeholder="Brasil" formControlName="usrCountry">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>State</mat-label>
+                    <input matInput type="text" placeholder="Minas Gerais" formControlName="usrState">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>City</mat-label>
+                    <input matInput type="text" placeholder="Cambuí" formControlName="usrCity">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Zip Code</mat-label>
+                    <input matInput type="text" placeholder="37600000" formControlName="usrZipCode">
+                </mat-form-field>
+            </div>
+            
+        
+            <mat-form-field>
+                <mat-label>Street Name</mat-label>
+                <input matInput type="text" placeholder="Street Name" formControlName="usrStreet">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Aditional Info</mat-label>
+                <input matInput type="text" placeholder="Close to the market " formControlName="usrAdInfo">
+            </mat-form-field>
+            
+        </div>
+        <mat-form-field>
+            <mat-label>Phone Number</mat-label>
+            <input matInput type="phone" placeholder="+55 xx-xxxxx-xxxx" formControlName="usrPhoneNum">
+        </mat-form-field>  
+        <mat-checkbox class="pp-agrmnt-checker" formControlName="PrivacePolicyAgmnt">I Agree With this <a class="tspp-checkbox" routerLink="['#']">Terms of service</a> And <a class="tspp-checkbox" routerLink="['#']">Privacy Policy</a></mat-checkbox>
+    </form>
+</div> 

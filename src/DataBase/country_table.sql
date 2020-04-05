@@ -1,0 +1,4 @@
+CREATE TABLE country(
+country_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+country_name TEXT NOT NULL
+);

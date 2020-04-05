@@ -1,0 +1,118 @@
+@import '../../fonts-mixins-patterns.stylus'
+@import '../home-page/highlilghts-banner/highlilghts-banner.component.styl'
+
+subcategor_container_width = ((banner_img_width/4));
+
+subcategor_container_height = ((banner_img_final_height/2));
+:host{
+    position: relative;
+    min-width: category_list_width;
+    width: category_list_width;
+    max-width: category_list_width;
+    max-height: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    
+
+    .category-list{
+        display: flex;
+        flex-direction: column;
+        min-width: category_list_width;
+        height:100%;
+
+        .category-list-item{
+            padding: 6px 12px
+            position: relative;
+           
+            .category-item-link{
+                normal-enfasis(13px);
+                text-decoration: none;
+                &:hover{
+                    normal-enfasis-hover();
+                }
+            } 
+            &:hover{
+                box-shadow: 0 0 6px 3px #eee;
+            }
+        }
+    }
+    
+    .category-sideview{
+        top: 0;
+        left: category_list_width;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        min-height: banner_container_height;
+        min-width: banner_img_width + category_list_width ;
+        height: banner_container_height;
+        width: banner_img_width + category_list_width ;
+        max-width: banner_img_width + category_list_width ;
+        max-height: banner_container_height;
+        position: absolute;
+        z-index: 8;
+        visibility: visible;
+        border-radius: 4px;
+        box-sizing: border-box;
+        box-shadow: 1px 1px 6px 3px #eee;
+        .subcategory-hall{
+            position: relative;
+            height: banner_container_height;
+            width: banner_img_width;
+            max-height: banner_container_height;
+            max-width: banner_img_width;
+            box-sizing: border-box;
+
+            .subcategory-list{
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                flex-shrink: 1;
+                justify-content: space-around;
+                max-height: banner_img_final_height;
+                min-width: banner_img_width
+                box-sizing: border-box;
+                .subcategory-list-item{
+                    background-color: lightgreen;
+                    max-width: subcategor_container_width ;
+                    min-height: subcategor_container_height;
+                    box-sizing: border-box;
+                    .subcategory-dl{
+                        max-width: subcategor_container_width ;
+                        max-height: subcategor_container_height;
+                        box-sizing: border-box;
+                        
+                        .subcategory-dt{
+                            high-enfasis(16px);
+                            font-weight: 600px;
+                            margin: 0 auto;
+                            
+                        }
+                        .subcateg-dd{
+                                margin-left: 12px
+                            .subcateg-dd-link{
+                                normal-enfasis();
+                                text-decoration: none;
+                                &:hover{
+                                    normal-enfasis-hover();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .bottom-highlights{
+                min-width: 100%;
+                min-height spotlight_height;
+                background-color: lightblue;     
+            }
+        }
+        .sideview-left-container{
+            min-width: category_list_width;
+            min-height 100%;
+            background-color: pink;
+        }
+    }
+}

@@ -1,0 +1,80 @@
+@import '../../fonts-mixins-patterns.stylus';
+profile_img_size = 140px;
+sidenav_size = 240px;
+shop_Info_side = 1fr;
+.usr-profile-page-container{
+  position: relative;
+  width: 1400px;
+  height 100%;
+  margin: 0 auto;
+  
+  .sidenav-container{
+    position: relative;
+    background-color: rgba(240,240,240,0.8)
+    min-height: 100vh;
+    width: 100%;
+    box-shadow: 1px 2px 2px  rgba(100,100,100,0.1) inset;
+    z-index: 1
+    .sidenav{
+      //background-color: rgb(255,250,240);
+      //position: absolute;
+      //display: flex;  
+      min-width: 280px;
+      min-height 100%;
+      box-shadow: 1px 1px 2px  rgba(150,150,150,0.1);
+      box-shadow: 1px 1px 2px  rgba(150,150,150,0.1) inset;
+      z-index: 5;
+      
+    }
+    .sidenav-content{
+      padding: 0 0 24px -4px;  
+      .sidenav-body-header-container{
+        width: 100%;
+        height: 52px;
+        border-bottom: 1px solid rgba(150,150,150,0.1);
+        box-shadow: 1px 1px 2px  rgba(150,150,150,0.1);
+        background-image: linear-gradient(to bottom right, rgba(255,80,20,0.8) 45%, rgba(255,80,0,1));
+        .header-info-list{
+          
+          width: auto;
+          max-width: 100%;
+          
+          height: 52px;
+          list-style: none;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin: auto 0 auto 16px;
+          padding: 0;
+          
+          
+        
+          .header-list-item{
+            width: 100px;
+            height: 100%;
+            
+            
+            
+            .info-link{
+              min-width: 100%;
+              min-height: 100%;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              normal-enfasis();
+              text-decoration: none;
+              color: white;
+              &:hover{
+                background-item-hover();
+              }
+              &:focus{
+                normal-enfasis-hover();
+                background-item-hover();
+              }   
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+<div class="prod-info-container"  >
+  <div class="prod-title-container">
+        <h4 class="prod-item-title" >
+            {{prodInfo.prod_title}}
+        </h4>
+  </div>
+  
+  <div class="shop-info-container">
+    <div class="shop-info-container">
+        <span class="prod-star-rating"><mat-icon class="rating-icon">star_rate</mat-icon></span>
+        <span class="prod-num-rating">4.8</span>
+        <span class="separador">|</span>
+        <span class="prod-orders">Orders (1296) </span>
+        
+        
+    </div>
+  </div>
+  <br>
+  <mat-divider></mat-divider>
+  <div class="shop-conditions">
+
+      <!-- <div *ngIf="isPromotional" class="promo-small-banner">
+        
+      </div> -->
+      <div class="price-container">
+          <div class="payment-conditions-container">
+                <p *ngIf="prodInfo.prod_discount > 0" class="old-prod-price">R$ {{prodInfo.prod_price  | number: '1.2-2'}}</p>
+                <p  class="announced-prod-price">R$ {{(prodInfo.prod_price*(1-(prodInfo?.prod_discount/100))) | number: '1.2-2'}}
+                    <span class="announcement-type">
+                        /item
+                    </span>
+                    <span *ngIf='prodInfo.prod_discount > 0' class="annuncement-descount">
+                    {{prodInfo.prod_discount  | number: '1.0-2'}}% OFF
+                    </span>
+                </p>
+              <!-- <div class="installment-conditions">
+                <div class="inst-condition">
+                    <span class="pm-condition">Parcelado 12x:</span> 
+                    <span class="condition-detail">Juros 10% - R$ {{prodInfo.prod_price * (1 + 0.1)  | number: '1.2-2'}}</span>
+                </div>
+                <div class="inst-condition">
+                    <span class="pm-condition">Parcelado 6x:</span> 
+                     <span class="condition-detail">Juros 5% - R$ {{prodInfo.prod_price * (1 + 0.05)  | number: '1.2-2'}}</span>
+                </div>
+                <div class="inst-condition">
+                    <span class="pm-condition">A vista boleto:</span>  
+                    <span class="condition-detail">R$ {{prodInfo.prod_price  | number: '1.2-2'}}</span>
+                </div>
+              </div> -->
+              <div class="qnty-container">
+                    <div class="qnty-label">
+                        <span style="text-align: center;">Quantidade :</span> 
+                        <button (click)="decrement()" class="qnty-decrement"><span class="qnty-sign">-</span></button>
+                        <input class="qnty-input" [(ngModel)]="amountSelected" type="text" value="amountSelected">
+                        <button (click)="increment()"class="qnty-increment"><span class="qnty-sign">+</span></button>
+                        <span class="available-amount" style="margin-left:24px;color: #666;font-size:13px;">{{prodInfo.prod_stockAmount}} Produtos Disponiveis</span>
+                    </div>
+                </div> 
+          </div>
+      </div>
+  </div>
+
+
+
+    <!--Essa seção ira conter informações sobre o produto, referente a cor, tipo, material, etc (Pont inicial))-->
+    <!--Criar sub Componente -->
+    <!--*ngIf="prodImg in prodImgDb"-->
+    <div class="prod-charact-container">
+
+    
+        
+        <!-- <ul class="characts-list">
+            <li class="characts-list-item">
+                <app-prod-info-detail
+                [charcts] = "chracteristic"
+                ></app-prod-info-detail>
+            </li>            
+        </ul> -->
+        
+
+
+        <div class="prod-color" *ngIf="hasColors">
+                <span class="prod-color-type">Cores: </span><span class="color-type-detail">Vermelho</span>
+            <ul class="prod-color-list">
+                <li class="prod-color-item" *ngFor="let image of prodInfo.image_url">
+                    <img class="color-item-img" src="data:image/png;base64,{{image}}" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+   
+    <!--Essa seção ira conter informações sobre o produto, referente a cor, tipo, material, etc (Pont final))-->
+
+    <div class="prod-car">
+        <span *ngIf="prodInfo.prod_shippingfee > 0">Envio: R$ {{prodInfo.prod_shippingfee | number : '1.2-2'}}</span>
+        <span *ngIf="prodInfo.prod_shippingfee <= 0">Envio: <b style='font-size: 14px;'>Envio Grátis</b> </span>
+    </div>
+
+    <!---->
+    <div class="act-btn-container">
+        <div [style.visibility]="isSameUser() ? 'hidden' : 'visible' "  class="btns-holder">
+            <button [style.opacity]="prodInfo.prod_stockAmount < 1 ? 0.4 : 1" [disabled]="((prodInfo.prod_stockAmount < 1 ))" class="btn-add-cart"  (click)="addToCart()"  mat-flat-button><mat-icon >add_shopping_cart</mat-icon> Carrinho </button>
+            <button  [style.opacity]="prodInfo.prod_stockAmount < 1 ? 0.4 : 1" [disabled]="((prodInfo.prod_stockAmount < 1))" class="btn-buy-now"   (click)="onBuyNow()"  mat-flat-button><mat-icon>card_giftcard</mat-icon> Comprar Agora</button>
+            <button class="btn-favorite"  (click)="addFavorite()" mat-flat-button><mat-icon>favorite_border</mat-icon> Favoritar</button>
+            <!--add snack bar-->
+        </div>
+    <!-- <div>
+
+        outra coisa relacionado a segurança do produto, metodo de envio e tal.
+        informação sobre devolução e tal
+        
+    </div>   -->
+  </div>
+</div>

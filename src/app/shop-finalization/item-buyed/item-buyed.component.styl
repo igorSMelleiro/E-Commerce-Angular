@@ -1,0 +1,145 @@
+@import '../../../fonts-mixins-patterns.stylus';
+.buyed-prod-container{   
+    display: flex;
+    flex-direction: row;
+    height: 200px;
+    padding: 0 24px 0 24px;
+    border-bottom:  1px solid #ccc;
+    
+
+    .prod-info, .shop-conditions{
+        flex:1;
+        padding-left: 16px;
+        
+
+
+    } 
+    
+    .prod-img-container{
+        display:flex;
+        
+        .prod-img{
+            background-color: pink;
+            margin: auto auto;
+            min-width: 150px;
+            min-height: 150px;
+            max-width: 150px;
+            max-height: 150px;
+            &:hover{
+                cursor: pointer;
+            }   
+        }
+    }
+    .prod-info{
+        
+        display:flex;
+        flex-direction: column;
+        
+
+        
+        .prod-title{
+            position: relative;
+            margin-top: 24px;
+            a{
+                prod-title-mixin();
+                normal-enfasis();
+            }
+           
+        }
+        .charact-list{
+            
+            max-height: 60%;
+            position: relative;
+            margin: 0 0 auto 0;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            flex-shrink: 1;
+        
+            .charact-item{
+                position:relative;
+                
+                
+                .charact-container{
+                    display: inline;
+                    .charact{
+                        normal-enfasis();
+                    }
+                    .attribute{
+                        low-enfasis(14px);
+                    }
+                }
+            }
+        }
+    }
+    .shop-conditions> * {
+        margin: 0;
+    }
+    .shop-conditions { 
+        margin-top: 24px;
+        .seller-name{
+            
+            a{
+                store-name();
+            }
+        }
+        .old-cost{
+            margin: 8px auto 0 auto;
+            text-decoration: line-through;
+            low-enfasis(13px);
+        }
+        .act-cost{
+            margin: 8px auto 0 auto;
+            normal-enfasis();
+            .desc-amount{
+               discount-ticket();
+
+            }
+        }
+        .shop-amount > * {
+            text-align: center;
+            
+            width: 36px;
+            max-width: 36px;
+            height: 36px;
+            max-height: 36px;
+            
+        }
+        .shop-amount{
+            text-align: start;
+            margin-top: 16px;
+            display: block;
+            min-height: 36px;
+            height:auto;
+            max-height: 36px;
+            
+            button{
+                outline: none
+                background-color: white;
+                border: none;
+                border-style: none;
+                border-radius: 2px;
+                background-color: #eee;
+                &:hover{
+                    background-color: #ddd;
+                }
+                &:active{
+                    background-color: #bbb;
+                }
+            }
+            input{
+    
+                outline: none;
+                border-style: none;
+                border-radius: 2px;
+               // box-shadow: 0 0 1px 1px #eeeeee inset;
+            }
+        }
+    }
+    .remove-container{
+        display: inline-flex;
+        .remove-btn{
+            margin: auto;
+        }    
+    }
+}

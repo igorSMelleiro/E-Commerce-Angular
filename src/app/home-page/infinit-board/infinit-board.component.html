@@ -1,0 +1,11 @@
+<div class="infinit-board-container">
+  <div class="board-header">
+    <h1 class="header-title">Para Voce:</h1>
+  </div>
+  <div class="infinit-list-container">
+    <div *ngFor="let item of prodItems" class="infinit-list-item">
+        <app-light-card [cardData]="item">
+        </app-light-card>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="card-container">
+    <div class="prod-img-container">
+        <ul [@slider]='this.selectedIndex' class="prod-img-list">
+            <li *ngFor='let image of images' class="prod-img-list-item">
+                <img class="prod-img" src="data:image/png;base64,{{image}}" alt="">
+            </li>
+        </ul>
+        <button *ngIf='product.image_url.length > 1' (click)='previous()' id="previus-img-btn" ><mat-icon>keyboard_arrow_left</mat-icon></button>
+        <button *ngIf='product.image_url.length > 1' (click)='next()' id="next-img-btn" ><mat-icon>keyboard_arrow_right</mat-icon></button>
+    </div>
+    <div class="prod-info-container">
+        <h3 class="prod-item-title"><a class="prod-item-link" (click)="prodPageNavigation()" title="{{product.prod_title}}">{{product.prod_title}}</a></h3>
+        <div class="announce-info-container">
+            <span *ngIf="(product.prod_discount > 0 )" class="announced-prod-price"> R$ {{product.prod_price*(1 - (product.prod_discount/100))  | number : '1.2-2'}}<span class="announcement-type">/item</span></span>
+            <span *ngIf="(product.prod_discount <= 0 )" class="announced-prod-price"> R$ {{product.prod_price | number : '1.2-2'}}<span class="announcement-type">/item</span></span>
+            <span *ngIf="(product.prod_discount > 0)" class="old-prod-price">R$ {{product.prod_price | number : '1.2-2'}}</span>
+            <span *ngIf="product.prod_shippingfee > 0" class="ship-prod-info">Envio: R$ {{product.prod_shippingfee | number : '1.2-2'}} </span>
+            <span *ngIf="product.prod_shippingfee <= 0" class="ship-prod-info">Envio: FRETE GRÁTIS </span>
+        </div>
+        <div class="shop-info-container">
+            <span class="prod-star-rating"><mat-icon class="rating-icon">star_rate</mat-icon></span>
+            <span class="prod-num-rating">4.8</span>
+            <span class="separador">|</span>
+            <span class="prod-orders">Orders (1296) </span>
+        </div>
+        <div class="seller-name-container">
+            <a class="seller-store-link" [routerLink]="['../seller_page']">
+                {{product.usr_name}}
+            </a>
+        </div>
+    </div>
+</div>

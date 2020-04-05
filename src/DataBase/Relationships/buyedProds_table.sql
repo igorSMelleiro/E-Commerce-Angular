@@ -1,0 +1,4 @@
+CREATE TABLE buyedProds(
+    buyedProds_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+    FOREIGN KEY 
+);

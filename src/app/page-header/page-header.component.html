@@ -1,0 +1,58 @@
+<div class="header-container">
+    <div class="page-easy-config">
+
+    </div>
+    <div class="header-main">
+      <div class="header-wraper">
+        <img [routerLink]="['']" src='assets/ambar-black.png'class="main-page-link">
+        <div class="search-box-container">
+            <div class="search-box-holder">
+                <input type="search" class="search-box" placeholder="Pesquisar" name="" value="" #searchBox>
+                <button class="search-link" #searchButton><mat-icon class="search-icon" >search</mat-icon></button>
+            </div>
+            <!-- <ul class= search-trends-list>
+              <li *ngFor="let trend of someTrends" class="trends-list-item">
+                <a class="trend-link" [routerLink]="['search']">{{trend.toLowerCase()}}</a>
+              </li>
+            </ul> -->
+        </div>
+          <div class="usr-field">
+            <span style='cursor: pointer;outline:none;' class="usr-cart-link" (click)='onBuyCart()'>
+                <mat-icon class="usr-cart-icon" appearance="outline">shopping_basket_outline</mat-icon>
+                <!-- <span class="cart-num-itens">4</span> -->
+                <span class="link-text">
+                  Carrinho
+                </span>
+            </span>
+            <a class="usr-favs-link" [routerLink]="['user_page']">
+                <mat-icon class="usr-favs-icon" appearance="outline">favorite_border_outline</mat-icon>
+                <span class="link-text">
+                  Favoritos
+                </span>
+            </a>
+            <div class="profile-field">
+                <a *ngIf="!(this.logedIn)" class="usr-account-link" [routerLink]="['#']" (click)="signDialog()">
+                    <div>
+                      <mat-icon class="usr-account-icon" appearance="outline">account_box</mat-icon>
+                      <span class="link-text">
+                        Perfil
+                      </span>
+                    </div>
+                </a>
+                <a *ngIf="(this.logedIn)" class="usr-account-link" [routerLink]="['user_page']">
+                    <div>
+                      <mat-icon class="usr-account-icon" appearance="outline">account_box</mat-icon>
+                      <span class="link-text">
+                        Perfil
+                      </span>
+                    </div>
+                </a>
+                <div *ngIf="(this.logedIn)">
+                  <p class="usr-name">{{usrName}}</p>
+                  <p class='usr-loggout' (click)="logout()"> logout </p>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>

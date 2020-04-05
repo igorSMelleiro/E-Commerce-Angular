@@ -1,0 +1,23 @@
+<div class="main-page-container">
+    
+    <app-highlilghts-banner [prods]='promoCardData'></app-highlilghts-banner>
+ 
+    <div class="body-highlights">
+        <div *ngFor="let banana of bananas;let r = index" class="highlights-container">
+            <div class="highlights-title">
+                <h1>
+                    {{banana}}
+                </h1>
+            </div>  
+            <div class="highlights-showcase">
+                <app-light-card [cardData]='this.promoCardData[(r + i) + i%3*r]' class="highlights-cards" *ngFor="let item of items;let i = index;" ></app-light-card>
+                <!-- <button class="btn-move-left"> teste </button>
+                <button class="btn-move-right">></button> -->
+            </div>
+        </div>
+    </div>
+    
+    <app-infinit-board [prodItemsList]='promoCardData'>
+    </app-infinit-board>
+
+</div>

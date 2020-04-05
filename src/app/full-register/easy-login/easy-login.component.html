@@ -1,0 +1,60 @@
+<div class="login-container">
+    <!-- <div clsas="logo-container">
+        <img class="logo-img" src="assets/ambar-black.png" alt="">
+      </div> -->
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Log-in">
+      <div class="social-autenticators">
+        <button mat-stroked-button>Sign-in with Google</button>
+        <button mat-stroked-button>Sign-in with Facebook</button>
+      </div>
+      <form (ngSubmit)="signInSubmit()" [formGroup]="signIn" class="login-form">
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input type="email" formControlName="email" matInput placeholder="E-mail" [value]="">
+          <mat-error>Erro</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input type="password" formControlName="password" matInput placeholder="Password" value="">
+          <mat-hint></mat-hint>
+        </mat-form-field>
+      <button type="submit" style="background-color: rgb(255,120,80);color: white;" mat-flat-button>Entrar</button>
+      </form>
+    </mat-tab>
+    <!--Register Tab-->
+    <mat-tab label="Register"> 
+      <form (ngSubmit)="signUpSubmit()" [formGroup]="signUp"  class="register-form" method="post">
+        <div clsas="logo-container">
+          <img class="logo-img" src="" alt=""><!--!Company Logo-->
+        </div>
+        <div class="social-autenticators">
+          <button mat-stroked-button>Sign-Up with Google</button>
+          <button mat-stroked-button>Sign-Up with Facebook</button>
+        </div>
+        
+          <mat-form-field appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input type="text" formControlName="firstName" matInput  placeholder="First Name" value="">
+          </mat-form-field>
+       
+        
+          <mat-form-field appearance="outline">
+              <mat-label>E-mail</mat-label>
+            <input type="email" name="email" formControlName="email" matInput placeholder="E-mail" value="">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+              <mat-label>Senha</mat-label>
+              <input type="password" formControlName="password" matInput placeholder="Passward" value="">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+              <mat-label>Confirmar Senha</mat-label>
+              <input type="password" formControlName="passwordConfirm" matInput placeholder="Repeat Passward" value="">
+              
+          </mat-form-field>
+          <button style="background-color: rgb(255,120,80);color: white;" type="submit" mat-flat-button>Confirmar</button>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+</div>

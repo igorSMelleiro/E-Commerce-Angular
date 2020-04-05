@@ -1,0 +1,42 @@
+<mat-horizontal-stepper [linear]='true' (selectionChange)="selection($event)" #regStepper>
+  <mat-step label="Foto">
+    <app-first-step></app-first-step>
+    
+  </mat-step>
+  <mat-step [stepControl]='addressSource' label="Endereço">
+    <!--Evaluates if user already has address-->
+  <div class="address-selector">
+      <mat-radio-group  [formControl]="addressSource" (change)="addressSourceChange($event)" [value]="addressSource.value" aria-label="Select an option">
+        <mat-radio-button [disabled]="this.addresses.length < 1" value="1">Usar Endereço ja Cadastrado</mat-radio-button>
+        <mat-radio-button value="2">Cadastrar novo endereço </mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field appearance="outline">
+        <mat-label>Addresses</mat-label>
+        <mat-select (selectionChange)="selectedAddressId($event)" [formControl]="address">
+          <mat-option *ngFor="let add of addresses; let i = index;" [value]="add.address_id">
+            {{add.address_streetName}}, 
+            {{add.address_number}}, 
+            {{add.address_cep}},
+            {{add.address_city}}, 
+            {{add.address_state}}, 
+            {{add.address_country}} 
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <mat-divider>
+    </mat-divider>
+    <app-address-reg *ngIf="addressSource.value == 2" #referenceTest></app-address-reg>
+  </mat-step>
+  <!-- <mat-step label="Especificação">
+    
+  </mat-step> -->
+  <mat-step label="Finalização">
+    
+    <app-confirm-form [regFormData]='formData'></app-confirm-form>
+    <div class="submit">
+      <button class="btn-submit"  (click)="register()" mat-raised-button>Enviar</button>
+    </div>
+ 
+  </mat-step>
+</mat-horizontal-stepper>

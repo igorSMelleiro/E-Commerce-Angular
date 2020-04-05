@@ -1,0 +1,38 @@
+<div class="container">
+    <div [formGroup]="storeFormGroup" class="form-wraper">
+        <h2>Dados da Loja</h2>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Nome da Loja</mat-label>
+                <input matInput formControlName="storeName"  placeholder="Ex: Renner" required>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>O Nome que voce escolher não podera ser alterado mais tarde.</mat-hint>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>CNPJ</mat-label>
+                <input matInput formControlName="storeCnpj" placeholder="Placeholder" required>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Ex: 12.345.678/0000-01 </mat-hint>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Phone 2</mat-label>
+                <input matInput formControlName="storePhone" placeholder="+55 43 92345 2345" required>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>+XX (XX) x xxxx - xxxx <b>(Sem espaços)</b></mat-hint>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Phone 2</mat-label>
+                <input matInput formControlName="storeCellphone" placeholder="Placeholder">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint> +XX (XX) x xxxx - xxxx <b>(Sem espaços)</b> </mat-hint>
+            </mat-form-field>
+        </p>
+        <button (click)='registerStore()' mat-raised-button>Cadastrar Loja</button>
+    </div>
+</div>

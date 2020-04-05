@@ -1,0 +1,41 @@
+<div class="shop-info-container">
+  <ng-template [ngIf]="dataSource.length > 0">
+  <div class="table-control">
+    <div class="table-title">
+      Title
+    </div>
+    <div class="table-filter">
+      <mat-form-field class="form-filter" style=" margin-bottom: -10px">
+        <input matInput placeholder="Buscar" value="">
+      </mat-form-field>
+    </div>
+    <mat-paginator 
+    class="paginator"
+    [length]="length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="pageEvent = $event">
+    </mat-paginator>
+  </div>
+    
+    <mat-accordion displayMode="flat" multi 
+    class="table-market-info">
+      <section  matSort class="market-info-header">
+        <span class="market-info-cell"
+          
+          *ngFor="let column of columnsToDisplay">{{column}}</span>
+      </section>
+      <mat-expansion-panel 
+      class="expansion-panel-container"
+      *ngFor="let data of dataSource">
+        <mat-expansion-panel-header  class="expansion-panel-header">
+            <span class="header-cell">{{data.prod_id}}</span>
+            <span class="header-cell">{{data.prod_title}}</span>
+            <span class="header-cell">R$ {{data.prod_cost | number : '1.2-2'}}</span>
+            <span class="header-cell">{{data.order_reqTime | date: 'dd/MMM/yy, h:mm:ss a'}}</span>
+        </mat-expansion-panel-header>
+        <app-inner-expandable-res [prodData]="data"></app-inner-expandable-res>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </ng-template>
+</div>

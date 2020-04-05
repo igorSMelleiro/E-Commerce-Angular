@@ -1,0 +1,112 @@
+<div class="container">
+    <div style="display:block; padding-left:12px;">
+        <h2>Publicações</h2>
+    </div>
+    <div *ngFor="let item of (postsData); let i = index;" class="item-layout">
+        <div  class="image-wraper">
+            <img class="prod-image" src="data:image/png;base64,{{item.image_url[0]}}" alt="">
+        </div>
+        <div class='general-prod-info'>
+            <p><b>Descrição: </b><a href="http://localhost:4200/prod_page/{{item.prod_id}}/{{item.prod_ownerId}}" target="_blank">{{item.prod_title}}</a></p>
+            <p><b>Visualizações: </b> {{item.prod_visits || 0}}</p>
+            <p><b>Codigo do produto: </b>{{item.prod_code || 'Não informado'}}</p>
+            <p><b>Quantidade em estoque: </b>{{item.prod_stockAmount}}</p>
+            <p><b>Preço: </b> R$ {{item.prod_price | number : '1.2-2'}}</p>
+            <p><b>Desconto: </b>{{item.prod_discount}}</p>
+            <p><b>Data de Publicação: </b>{{item.prod_insertTime | date: 'dd/MMM/yy'}}</p>
+            <p><b>Endereço:</b>
+                {{item.address_streetName}} {{item.address_number}}, 
+                {{item.address_cep}}, {{item.address_country}}, {{item.address_state}}, {{item.address_city}}
+            </p>
+        </div>
+        <div class="prod-actions">
+            <button (click)='onEditPost(item.prod_id)' class="edit-btn" mat-stroked-button>Editar</button>
+            <button (click)='onDeletePost(item.prod_id, i)' mat-stroked-button>Excluir</button>
+            <a style="font-size: 14px;" href="">Relatar Problema</a>
+        </div>
+    </div>
+    <div *ngIf='false' class="edit-forms-wraper">        
+        <div class='prod-edit-form'>
+            <h3>Produto</h3>
+            <mat-form-field appearance="outline">
+                <mat-label>Descrição</mat-label>
+                <input matInput placeholder="Placa de Video GeForce GTX 1080">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Código do produto</mat-label>
+                <input matInput placeholder="8908">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Preço R$</mat-label>
+                    <input matInput placeholder="1200.00">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Quantidade</mat-label>
+                    <input matInput placeholder="Ex: 4">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline">
+                <mat-label>Desconto %</mat-label>
+                <input matInput placeholder="20">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Categoria</mat-label>
+                <input matInput placeholder="Placeholder">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>        
+        </div>
+        <div class='address-edit-form'>
+            
+            <h3>Endereço</h3>
+            <mat-form-field appearance="outline">
+                <mat-label>Outline form field</mat-label>
+                <input matInput placeholder="Placeholder">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Outline form field</mat-label>
+                <input matInput placeholder="Placeholder">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Outline form field</mat-label>
+                <input matInput placeholder="Placeholder">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Outline form field</mat-label>
+                <input matInput placeholder="Placeholder">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Outline form field</mat-label>
+                <input matInput placeholder="Placeholder">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Outline form field</mat-label>
+                <input matInput placeholder="Placeholder">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,10 @@
+<div class="prod-charact-container">
+  <div class="prod-chract">
+      <p class="prod-charact-name" > {{charctType}}: </p>  
+          <!--picker para selecionar mateiral-->
+      <ul class="prod-charact-list">
+        <li class="charact-list-item" *ngFor="let charName of charctNames">
+            <button mat-stroked-button>{{charName}}</button>
+        </li>
+      </ul>
+  </div>

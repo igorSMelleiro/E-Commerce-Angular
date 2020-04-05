@@ -1,0 +1,16 @@
+<div class="prod-img-container">
+  <ul [@slide]="this.selectedIndex" class="prod-img-list">
+    <li *ngFor="let currentImage of imagesList" class="prod-img-list-item">
+          <img class="prod-img" src="data:image/png;base64,{{currentImage}}" alt="">
+    </li>
+  </ul>
+  <button (click)="previous()" class="previous-img-btn" ><mat-icon>keyboard_arrow_left</mat-icon></button>
+  <button (click)="next()" class="next-img-btn" ><mat-icon>keyboard_arrow_right</mat-icon></button>
+  <ul class="prod-gal-img">
+      <li (click)="selectedImage(i)" class="prod-gal-item" *ngFor="let image of images; let i = index">
+          <img class="gal-img" src="data:image/png;base64,{{image}}" alt="">
+      </li>
+  </ul>
+  <!-- <button class="previous-list"><mat-icon>keyboard_arrow_left</mat-icon></button>
+  <button class="next-list"><mat-icon>keyboard_arrow_right</mat-icon></button> -->
+</div>
